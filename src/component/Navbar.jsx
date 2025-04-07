@@ -4,32 +4,28 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  let login = false;
   return (
-    <div>
-      {" "}
-      <nav className="flex justify-between py-4 px-6 bg-slate-300">
-        <img className="w-28" src={Logo} />
-        <div className="lg:flex lg:gap-3  hidden">
-          <p>Home</p>
-          <Link to="/about">
-            <p>About</p>
-          </Link>
+    <nav className="bg-white shadow-md py-4 px-6 flex items-center justify-between relative">
+      <div className="flex items-center gap-2">
+        <img src={Logo} alt="App Logo" className="w-28 object-contain" />
+      </div>
 
-          <p>Contact</p>
-        </div>
+      <div className="hidden lg:flex gap-6 font-medium text-gray-700">
+        <Link to="/" className="hover:text-emerald-600 transition">
+          Home
+        </Link>
+        <Link to="/about" className="hover:text-emerald-600 transition">
+          About
+        </Link>
+        <Link to="/contact" className="hover:text-emerald-600 transition">
+          Contact
+        </Link>
+      </div>
 
-        {login ? (
-          <div>
-            <p>Hello User!</p>
-          </div>
-        ) : (
-          <Link to="/login">
-            <Button body="Login" />
-          </Link>
-        )}
-      </nav>
-    </div>
+      <Link to="/login">
+        <Button body="Login" />
+      </Link>
+    </nav>
   );
 };
 
